@@ -58,7 +58,6 @@ class Player:
         return self.influence_points
 
     def get_final_score(self):
-        """Hybrid scoring: base points + token multiplier"""
         token_bonus = len(self.tokens) * 5
         return self.get_total_points() + token_bonus
 
@@ -167,11 +166,7 @@ class GameState:
     SCENARIOS = [
         ScenarioCard(
             "Sergio de Mello — Empowering Others",
-            """You're leading a humanitarian project in a region where local staff distrust external leaders.
-You have authority from headquarters, but the community sees you as an outsider. Trust is low, buy-in is absent,
-and without local partnership, your project will fail. The challenge is to earn legitimacy by genuinely empowering
-locals rather than imposing solutions. This mirrors real global leadership dilemmas — earning trust across cultures
-requires humility, inclusion, and a willingness to share control.""",
+            "You're leading a humanitarian project in a region where local staff distrust external leaders. You have authority from headquarters, but the community sees you as an outsider. Trust is low, buy-in is absent, and without local partnership, your project will fail. The challenge is to earn legitimacy by genuinely empowering locals rather than imposing solutions.",
             [Tool.AGENCY, Tool.ALLOCENTRISM, Tool.INTENTIONALITY],
             "Legitimacy Token",
             "Real influence means building legitimacy, not authority. When leaders listen, adapt, and give others genuine ownership, trust becomes their strongest source of power.",
@@ -179,11 +174,7 @@ requires humility, inclusion, and a willingness to share control.""",
         ),
         ScenarioCard(
             "Erik Peterson — Conflict & Collaboration",
-            """Two of your senior managers are fighting bitterly over marketing budgets. One leads product,
-the other leads sales. Both feel threatened; both want resources for their vision. The conflict is now spilling
-into meetings, frustrating teams, and threatening a critical product launch. You need to resolve this not by
-choosing a winner, but by realigning their incentives and shared purpose. Internal politics and misaligned incentives
-can derail execution faster than external competition. Leaders don't just solve conflicts — they align relationships and meaning.""",
+            "Two of your senior managers are fighting bitterly over marketing budgets. One leads product, the other leads sales. Both feel threatened; both want resources for their vision. The conflict is now spilling into meetings, frustrating teams, and threatening a critical product launch.",
             [Tool.PATHOS, Tool.NETWORKS, Tool.ALLOCENTRISM],
             "Cohesion Token",
             "Great leaders don't just solve conflicts — they heal them. Influence comes from aligning emotions, relationships, and purpose so that disagreement turns into shared drive.",
@@ -191,11 +182,7 @@ can derail execution faster than external competition. Leaders don't just solve 
         ),
         ScenarioCard(
             "Leading Change — Overcoming Resistance",
-            """You've introduced a new system designed to improve efficiency and collaboration. But adoption
-has stalled. Employees are skeptical, some are actively resistant, and rumors spread that the change is being
-forced from above. Resistance is natural; overcoming it requires influence, not authority. You must help people
-see the "why," include them in the rollout, and show early wins that make the change feel like their idea, not
-a mandate imposed from above.""",
+            "You've introduced a new system designed to improve efficiency and collaboration. But adoption has stalled. Employees are skeptical, some are actively resistant, and rumors spread that the change is being forced from above.",
             [Tool.COALITIONS, Tool.AGENCY, Tool.INTENTIONALITY],
             "Buy-In Token",
             "Change is less about plans and more about participation. When people are included, understand the 'why,' and see early success, resistance transforms into commitment.",
@@ -203,10 +190,7 @@ a mandate imposed from above.""",
         ),
         ScenarioCard(
             "Cross-Functional Merger — Onboarding",
-            """Two companies have just merged. The teams are now sharing offices, processes, and leadership.
-But they come from different cultures: one was fast-moving and entrepreneurial, the other was structured and risk-averse.
-People feel their identity is threatened. Mergers fail more often due to culture clash than strategy. Your task is to
-honor both histories while building a new shared future—finding common ground without erasing what made each team valuable.""",
+            "Two companies have just merged. The teams are now sharing offices, processes, and leadership. But they come from different cultures: one was fast-moving and entrepreneurial, the other was structured and risk-averse. People feel their identity is threatened.",
             [Tool.ALLOCENTRISM, Tool.COALITIONS, Tool.TEAM_BUILDING],
             "Integration Token",
             "Integration isn't about blending identities; it's about respecting differences while forging unity. Influence here means empathy first, collaboration second, and shared celebration third.",
@@ -214,11 +198,7 @@ honor both histories while building a new shared future—finding common ground 
         ),
         ScenarioCard(
             "Remote Team — Burnout Warning",
-            """Your distributed team has been remote for two years. Productivity is strong, but you're noticing
-warning signs: people are taking longer to respond, meetings feel perfunctory, and some top performers are quietly
-job-hunting. Remote work increases productivity but erodes social connection and purpose if unmanaged. You need to
-acknowledge the fatigue, recalibrate workload, and rebuild the sense that work matters and that people matter. Empathy
-and honesty will rebuild motivation faster than metrics.""",
+            "Your distributed team has been remote for two years. Productivity is strong, but you're noticing warning signs: people are taking longer to respond, meetings feel perfunctory, and some top performers are quietly job-hunting.",
             [Tool.PATHOS, Tool.INTENTIONALITY, Tool.ALLOCENTRISM],
             "Resilience Token",
             "Remote leadership thrives on human connection. Empathy, focus, and honesty rebuild motivation more effectively than deadlines or incentives.",
@@ -226,10 +206,7 @@ and honesty will rebuild motivation faster than metrics.""",
         ),
         ScenarioCard(
             "Regulatory Approval — Evidence & Allies",
-            """You've developed an innovative pilot program that could transform your industry, but it requires
-regulatory approval. The regulator is cautious, skeptical, and has been burned by false promises before. You need to
-persuade them—not just with data, but by building credibility, demonstrating ethical standards, and bringing trusted
-third parties to vouch for your intentions. Influence often depends on credibility and alignment, not just facts.""",
+            "You've developed an innovative pilot program that could transform your industry, but it requires regulatory approval. The regulator is cautious, skeptical, and has been burned by false promises before.",
             [Tool.LOGOS, Tool.ETHOS, Tool.NETWORKS],
             "Credibility Token",
             "Influence is strongest when credibility, relationships, and reasoning work together. Facts alone persuade no one — but trusted messengers armed with logic can move institutions.",
@@ -237,10 +214,7 @@ third parties to vouch for your intentions. Influence often depends on credibili
         ),
         ScenarioCard(
             "Product Recall — Public Trust",
-            """A defect in your product has been discovered. Customers are affected, media is questioning your
-integrity, and regulators are involved. This is a crisis that tests your values under extreme pressure. You must decide:
-do you minimize, spin, and protect the brand? Or do you own the problem, express genuine empathy, and coordinate a
-transparent fix? Crisis leadership is about accountability. Accountability and care restore trust faster than spin.""",
+            "A defect in your product has been discovered. Customers are affected, media is questioning your integrity, and regulators are involved. This is a crisis that tests your values under extreme pressure.",
             [Tool.ALLOCENTRISM, Tool.PATHOS, Tool.COALITIONS],
             "Trust Restoration Token",
             "Trust is rebuilt through transparency, care, and cooperation. In crisis, vulnerability is not weakness — it's the foundation of credibility.",
@@ -248,10 +222,7 @@ transparent fix? Crisis leadership is about accountability. Accountability and c
         ),
         ScenarioCard(
             "Budget Cuts — Stakeholder Alignment",
-            """Your organization faces a 20% budget reduction due to market conditions. Every team leads wants
-to protect their projects. Resources are scarce; tradeoffs are inevitable. You need to make hard choices and help
-teams accept them. Scarcity forces tough prioritization and communication under pressure. You can frame this as a
-"loss" (demoralize people) or as an opportunity to "focus on what truly matters" (rally people around shared priorities).""",
+            "Your organization faces a 20% budget reduction due to market conditions. Every team lead wants to protect their projects. Resources are scarce; tradeoffs are inevitable.",
             [Tool.LOGOS, Tool.INTENTIONALITY, Tool.COALITIONS],
             "Alignment Token",
             "Scarcity can become strategic strength when framed as focus. Leadership influence means transforming fear into collective purpose.",
@@ -259,11 +230,7 @@ teams accept them. Scarcity forces tough prioritization and communication under 
         ),
         ScenarioCard(
             "Inclusion Journey — Building Belonging",
-            """Your organization launches a Diversity, Equity, and Inclusion (DEI) initiative. The intention
-is good, but resistance appears immediately. Some people see it as "reverse discrimination," others dismiss it as
-"performative," and a few see it as a threat to their status. True inclusion demands both understanding and courage
-to challenge discomfort. You need to listen to skepticism with empathy, set visible norms for respect, and share stories
-that humanize why belonging matters. Belonging grows from stories, trust, and everyday visible norms.""",
+            "Your organization launches a Diversity, Equity, and Inclusion (DEI) initiative. The intention is good, but resistance appears immediately. Some people see it as reverse discrimination, others dismiss it as performative.",
             [Tool.ALLOCENTRISM, Tool.TEAM_BUILDING, Tool.PATHOS],
             "Inclusion Token",
             "Inclusion is built through stories, standards, and listening. Influence here is moral as much as strategic — it's about shaping culture through consistent fairness and shared humanity.",
@@ -302,17 +269,12 @@ def init_session_state():
 
 def calculate_points(chosen_tools, scenario):
     base_points = sum(tool.points_value for tool in chosen_tools)
-
-    synergy_bonus = 0
-    suggested_count = sum(
-        1 for tool in chosen_tools if tool.tool in scenario.suggested_tools
+    synergy_bonus = (
+        2
+        if sum(1 for tool in chosen_tools if tool.tool in scenario.suggested_tools) >= 2
+        else 0
     )
-    if suggested_count >= 2:
-        synergy_bonus = 2
-
-    power_types = set(tool.power_type for tool in chosen_tools)
-    variety_bonus = 1 if len(power_types) == 3 else 0
-
+    variety_bonus = 1 if len(set(tool.power_type for tool in chosen_tools)) == 3 else 0
     total = base_points + synergy_bonus + variety_bonus
     return base_points, synergy_bonus, variety_bonus, total
 
@@ -323,116 +285,26 @@ def main():
         layout="wide",
         initial_sidebar_state="expanded",
     )
-
     init_session_state()
 
     st.markdown(
         """
     <style>
-    /* Main background - light and airy */
-    .main {
-        background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-    }
-
-    .stApp {
-        background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-    }
-
-    /* Sidebar styling - light purple */
-    [data-testid="stSidebar"] {
-        background: linear-gradient(180deg, #e0d4f7 0%, #d8c5f0 100%);
-        color: #2d1b69;
-    }
-
-    [data-testid="stSidebar"] h1,
-    [data-testid="stSidebar"] h2,
-    [data-testid="stSidebar"] h3,
-    [data-testid="stSidebar"] h4,
-    [data-testid="stSidebar"] label {
-        color: #2d1b69 !important;
-    }
-
-    [data-testid="stSidebar"] .stMarkdown {
-        color: #2d1b69 !important;
-    }
-
-    .stButton>button {
-        width: 100%;
-        padding: 10px;
-        font-size: 16px;
-        background: linear-gradient(135deg, #a7c4f7 0%, #b8a5e8 100%);
-        color: #2d1b69;
-        border: none;
-        transition: all 0.3s ease;
-        font-weight: 600;
-    }
-
-    .stButton>button:hover {
-        background: linear-gradient(135deg, #b8a5e8 0%, #a7c4f7 100%);
-        transform: translateY(-2px);
-        box-shadow: 0 8px 16px rgba(167, 196, 247, 0.3);
-    }
-
-    /* Text areas and inputs */
-    .stTextArea textarea,
-    .stTextInput input {
-        background-color: #ffffff !important;
-        border: 2px solid #d0c5f7 !important;
-        border-radius: 8px !important;
-        color: #2d1b69 !important;
-    }
-
-    /* Expander styling */
-    .streamlit-expanderHeader {
-        background: linear-gradient(135deg, #fcd5ce 0%, #f9d5e5 100%);
-        color: #c85a54;
-        border-radius: 8px;
-        font-weight: 600;
-    }
-
-    /* Metric cards */
-    .stMetric {
-        background: linear-gradient(135deg, #e8dff5 0%, #f0e9f8 100%);
-        padding: 15px;
-        border-radius: 10px;
-        color: #2d1b69;
-    }
-
-    /* Success messages */
-    .stSuccess {
-        background: linear-gradient(135deg, #d4f8e8 0%, #c3f0dd 100%);
-        border-radius: 8px;
-        color: #0d5e3f;
-    }
-
-    /* Warning messages */
-    .stWarning {
-        background: linear-gradient(135deg, #ffe8cc 0%, #ffd9b3 100%);
-        border-radius: 8px;
-        color: #663d1d;
-    }
-
-    /* Selectbox styling */
-    .stSelectbox {
-        background-color: #ffffff !important;
-    }
-
-    /* Progress bar */
-    .stProgress > div > div > div > div {
-        background: linear-gradient(90deg, #a7c4f7 0%, #b8a5e8 100%);
-    }
+    .stApp {background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);}
+    [data-testid="stSidebar"] {background: linear-gradient(180deg, #e0d4f7 0%, #d8c5f0 100%); color: #2d1b69;}
+    [data-testid="stSidebar"] h1, [data-testid="stSidebar"] h2, [data-testid="stSidebar"] h3, [data-testid="stSidebar"] h4, [data-testid="stSidebar"] label {color: #2d1b69 !important;}
+    .stButton>button {background: linear-gradient(135deg, #a7c4f7 0%, #b8a5e8 100%); color: #2d1b69; font-weight: 600;}
+    .stButton>button:hover {transform: translateY(-2px); box-shadow: 0 8px 16px rgba(167, 196, 247, 0.3);}
+    .stTextArea textarea, .stTextInput input {background-color: #ffffff !important; border: 2px solid #d0c5f7 !important; border-radius: 8px !important; color: #2d1b69 !important;}
     </style>
     """,
         unsafe_allow_html=True,
     )
 
-    # Sidebar Profile - Personal Profile (Permanent)
     with st.sidebar:
         st.markdown("### 📋 My Influence Profile")
         st.markdown("---")
-
         st.markdown("#### 🔝 Top Strengths")
-        st.markdown("_Go-To Tools I naturally excel with_")
         my_strengths = st.multiselect(
             "My Strengths",
             options=[t.value for t in Tool],
@@ -446,9 +318,7 @@ def main():
                 "Ethos",
             ],
         )
-
         st.markdown("#### 🌱 Growth Opportunities")
-        st.markdown("_Areas I want to develop_")
         my_growth = st.multiselect(
             "Areas to Grow",
             options=[t.value for t in Tool],
@@ -456,353 +326,387 @@ def main():
             key="my_growth_tools",
             default=["Networks", "Might", "Exchange"],
         )
-
         st.markdown("#### 🎯 Personal Focus")
-        st.markdown("_My commitment for this game_")
         my_goal = st.text_area(
             "My Focus for This Game",
             "Practice early influence, not reactive influence. Use my growth tools — especially Networks and Might — in at least two scenarios to strengthen balance between empathy and assertiveness.",
             height=150,
             key="my_personal_goal",
         )
-
         st.markdown("#### 💪 Power Style")
-        st.markdown("_How I lead_")
         my_style = st.text_area(
             "My Influence Style",
-            "Smart Power Integrator — I combine structure, empathy, and foresight. I tend to lead through understanding, preparation, and fairness, using both logic and emotional intelligence to align others around shared goals.",
+            "Smart Power Integrator — I combine structure, empathy, and foresight. I tend to lead through understanding, preparation, and fairness.",
             height=150,
             key="my_power_style",
         )
 
-        st.markdown("---")
-        st.markdown("### 📊 Profile Summary")
-
-        col1, col2 = st.columns(2)
-        with col1:
-            st.markdown(f"**✨ Strengths:** {len(my_strengths)}")
-            for strength in my_strengths:
-                st.markdown(f"  • {strength}")
-
-        with col2:
-            st.markdown(f"**🌱 Growth Areas:** {len(my_growth)}")
-            for growth in my_growth:
-                st.markdown(f"  • {growth}")
-
     st.title("🃏 The Strategy Shuffle")
     st.subheader("A Leadership & Influence Card Game")
     st.markdown("**Master influence through strategic, empathetic decision-making**")
+    st.markdown("---")
+    st.markdown("""
+    ### 🎯 What This Game Is
+    This game is my personal distillation of the Managerial Decision-Making and Influence course. It turns lessons on **Soft, Hard, and Smart Power** into an interactive reflection tool.
+    My Leverage Inventory shows strong **Smart Power** — empathy, awareness, and focus — and areas to grow in **Networks** and **Might**. Each round helps me practice new influence tools while reinforcing fairness, awareness, and ownership.
+    I built this to guide my future self — **to listen deeply, act intentionally, and lead with balance.**
+    """)
 
-    # Setup Phase
-    if not st.session_state.game_started:
-        st.markdown("---")
-        st.markdown("## 📖 Game Setup")
+    tab1, tab2 = st.tabs(["🎮 Play Game", "🧰 Tool Guide"])
 
-        col1, col2 = st.columns(2)
-
-        with col1:
-            st.markdown("### 👥 Number of Players")
-            num_players = st.slider(
-                "How many players?", 1, 6, 2, label_visibility="collapsed"
-            )
-
-        with col2:
-            st.markdown("### 🔄 Number of Rounds")
-            num_rounds = st.slider(
-                "How many rounds?", 1, 9, 5, label_visibility="collapsed"
-            )
-
-        st.markdown("### 🎭 Player Names")
-        player_names = []
-        cols = st.columns(2)
-        for i in range(num_players):
-            with cols[i % 2]:
-                name = st.text_input(
-                    f"Player {i + 1}",
-                    value=f"Player {i + 1}",
-                    key=f"player_name_{i}",
-                    label_visibility="collapsed",
-                )
-                player_names.append(name)
-
-        col1, col2, col3 = st.columns([1, 1, 1])
-        with col2:
-            if st.button("🎮 Start Game", key="start_button", use_container_width=True):
-                st.session_state.players = [Player(name) for name in player_names]
-                st.session_state.max_rounds = num_rounds
-                st.session_state.scenario_pool = list(GameState.SCENARIOS)
-                random.shuffle(st.session_state.scenario_pool)
-                st.session_state.game_started = True
-                st.session_state.current_round = 1
-                st.session_state.current_scenario = st.session_state.scenario_pool.pop(
-                    0
-                )
-                st.rerun()
-
-    elif st.session_state.game_over:
-        st.markdown("---")
-        st.markdown("# 🏆 Game Over!")
-
-        col1, col2 = st.columns(2)
-
-        with col1:
-            st.markdown("## 🥇 Final Scores")
-            players_data = []
-            for player in st.session_state.players:
-                players_data.append(
-                    {
-                        "Player": player.name,
-                        "Base Points": player.get_total_points(),
-                        "Tokens": player.get_token_count(),
-                        "Token Bonus": player.get_token_count() * 5,
-                        "Final Score": player.get_final_score(),
-                    }
-                )
-
-            df = pd.DataFrame(players_data)
-            df = df.sort_values("Final Score", ascending=False)
-            st.dataframe(df, use_container_width=True)
-
-        with col2:
-            winner = max(st.session_state.players, key=lambda p: p.get_final_score())
-
-            st.markdown(f"### 👑 **{winner.name}**")
-            col_w1, col_w2 = st.columns(2)
-            with col_w1:
-                st.metric("Final Score", winner.get_final_score())
-            with col_w2:
-                st.metric("Tokens Earned", winner.get_token_count())
-
-            st.markdown("**Score Breakdown:**")
-            st.write(f"  • Base Points: **{winner.get_total_points()}**")
-            st.write(
-                f"  • Tokens: {winner.get_token_count()} × 5 = **+{winner.get_token_count() * 5}**"
-            )
-            st.write(f"  • **Total: {winner.get_final_score()}**")
-
-        st.markdown("---")
-        st.markdown("## 📊 Player Details")
-        for player in st.session_state.players:
-            with st.expander(f"👤 {player.name}"):
-                col1, col2, col3 = st.columns(3)
-                with col1:
-                    st.metric("Final Score", player.get_final_score())
-                with col2:
-                    st.metric("Base Points", player.get_total_points())
-                with col3:
-                    st.metric("Tokens", player.get_token_count())
-
-                if player.tokens:
-                    st.markdown("**🏆 Tokens Earned:**")
-                    for token in player.tokens:
-                        st.markdown(f"  ✨ {token}")
-
-                st.markdown(f"**Round Scores:** {player.round_scores}")
-
-                if player.reflections:
-                    st.markdown(f"**💭 Reflections ({len(player.reflections)}):**")
-                    for i, reflection in enumerate(player.reflections, 1):
-                        st.write(f"**Round {i}:** _{reflection}_")
-                else:
-                    st.write("*No reflections recorded*")
-
-        st.markdown("---")
-        st.markdown("## 🎓 Key Lessons")
-        lessons = [
-            "🎧 Empathy & Listening (Allocentrism) are powerful levers.",
-            "🤝 Networking is about genuine connection, not charisma.",
-            "🧠 Smart Power means knowing WHEN to use Soft & Hard power.",
-            "🔄 Real change comes from fairness, inclusion, and ownership.",
-            "🎯 Read the room (Situational Awareness) before acting.",
-            "⚡ Shape situations (Agency) rather than just reacting.",
-            "📖 Stories stick; data clarifies. Use both.",
-            "💼 Build alliances BEFORE you need them (Coalitions).",
-            "🤲 Give first; reciprocity builds loyalty.",
-            "🌟 True influence is ethical, intentional, and generous.",
+    with tab2:
+        st.markdown("## 🧰 The 12 Influence Tools")
+        tools_data = [
+            {
+                "Tool": "Ethos",
+                "Power Type": "Soft Power",
+                "Description": "Lead with credibility and integrity.",
+                "Key Idea": "Influence through trust and consistency.",
+            },
+            {
+                "Tool": "Logos",
+                "Power Type": "Smart Power",
+                "Description": "Use logic, evidence, and reasoning.",
+                "Key Idea": "Persuade through clarity and proof.",
+            },
+            {
+                "Tool": "Pathos",
+                "Power Type": "Soft Power",
+                "Description": "Communicate with emotion and story.",
+                "Key Idea": "Inspire through connection, not data.",
+            },
+            {
+                "Tool": "Allocentrism",
+                "Power Type": "Soft / Smart Power",
+                "Description": "Listen before leading; understand others' perspectives.",
+                "Key Idea": "Empathy creates influence.",
+            },
+            {
+                "Tool": "Exchange",
+                "Power Type": "Hard / Smart Power",
+                "Description": "Create mutual value through fair tradeoffs.",
+                "Key Idea": "Reciprocity strengthens relationships.",
+            },
+            {
+                "Tool": "Networks",
+                "Power Type": "Soft / Smart Power",
+                "Description": "Build diverse, genuine connections.",
+                "Key Idea": "Relationships are long-term power.",
+            },
+            {
+                "Tool": "Coalitions",
+                "Power Type": "Smart Power",
+                "Description": "Align allies before the meeting.",
+                "Key Idea": "Collaboration shapes decisions.",
+            },
+            {
+                "Tool": "Team Building",
+                "Power Type": "Soft Power",
+                "Description": "Foster unity and shared purpose.",
+                "Key Idea": "Cohesion sustains influence.",
+            },
+            {
+                "Tool": "Might",
+                "Power Type": "Hard Power",
+                "Description": "Use authority decisively when needed.",
+                "Key Idea": "Assertiveness can be ethical.",
+            },
+            {
+                "Tool": "Intentionality",
+                "Power Type": "Smart Power",
+                "Description": "Focus energy on key goals.",
+                "Key Idea": "Clarity beats busyness.",
+            },
+            {
+                "Tool": "Situational Awareness",
+                "Power Type": "Smart Power",
+                "Description": "Read the room and adapt to context.",
+                "Key Idea": "Awareness enables timing.",
+            },
+            {
+                "Tool": "Agency",
+                "Power Type": "Smart Power",
+                "Description": "Take initiative; shape situations.",
+                "Key Idea": "Don't wait — act with purpose.",
+            },
         ]
-        for lesson in lessons:
-            st.write(lesson)
 
-        st.markdown("---")
-        col1, col2, col3 = st.columns([1, 1, 1])
-        with col2:
-            if st.button("🔄 Play Again", use_container_width=True):
-                st.session_state.game_started = False
-                st.session_state.players = []
-                st.session_state.current_round = 0
-                st.session_state.game_over = False
-                st.session_state.current_player_index = 0
-                st.rerun()
+        for tool in tools_data:
+            with st.expander(f"**{tool['Tool']}** — {tool['Power Type']}"):
+                col1, col2 = st.columns(2)
+                with col1:
+                    st.write(f"**Description:** {tool['Description']}")
+                with col2:
+                    st.write(f"**Key Idea:** {tool['Key Idea']}")
 
-    # Gameplay Phase
-    else:
-        progress = (st.session_state.current_round - 1) / st.session_state.max_rounds
-        st.progress(progress)
-        st.markdown(
-            f"### 📍 Round {st.session_state.current_round} of {st.session_state.max_rounds}"
-        )
-
-        st.markdown("---")
-
-        scenario = st.session_state.current_scenario
-        col1, col2 = st.columns([3, 1])
-
-        with col1:
-            st.markdown(f"## 📋 {scenario.name}")
-            st.markdown(scenario.situation)
-
-            with st.expander("💡 **Suggested Tools & Lesson**"):
-                st.write(
-                    f"**Suggested Tools:** {', '.join([t.value for t in scenario.suggested_tools])}"
+    with tab1:
+        if not st.session_state.game_started:
+            st.markdown("---")
+            st.markdown("## 📖 Game Setup")
+            col1, col2 = st.columns(2)
+            with col1:
+                st.markdown("### 👥 Number of Players")
+                num_players = st.slider(
+                    "How many players?", 1, 6, 2, label_visibility="collapsed"
                 )
-                st.write(f"**Reward Token:** ✨ {scenario.reward_token}")
-                st.markdown("---")
-                st.write("**📖 Play Example:**")
-                st.write(scenario.play_example)
-                st.markdown("---")
-                st.write("**🎯 Lesson:**")
-                st.write(scenario.lesson)
+            with col2:
+                st.markdown("### 🔄 Number of Rounds")
+                num_rounds = st.slider(
+                    "How many rounds?", 1, 9, 5, label_visibility="collapsed"
+                )
 
-        with col2:
-            st.markdown("### 📊 Status")
-            st.metric("Round", st.session_state.current_round)
+            st.markdown("### 🎭 Player Names")
+            player_names = []
+            cols = st.columns(2)
+            for i in range(num_players):
+                with cols[i % 2]:
+                    name = st.text_input(
+                        f"Player {i + 1}",
+                        value=f"Player {i + 1}",
+                        key=f"player_name_{i}",
+                        label_visibility="collapsed",
+                    )
+                    player_names.append(name)
+
+            col1, col2, col3 = st.columns([1, 1, 1])
+            with col2:
+                if st.button(
+                    "🎮 Start Game", key="start_button", use_container_width=True
+                ):
+                    st.session_state.players = [Player(name) for name in player_names]
+                    st.session_state.max_rounds = num_rounds
+                    st.session_state.scenario_pool = list(GameState.SCENARIOS)
+                    random.shuffle(st.session_state.scenario_pool)
+                    st.session_state.game_started = True
+                    st.session_state.current_round = 1
+                    st.session_state.current_scenario = (
+                        st.session_state.scenario_pool.pop(0)
+                    )
+                    st.rerun()
+
+        elif st.session_state.game_over:
+            st.markdown("---")
+            st.markdown("# 🏆 Game Over!")
+            col1, col2 = st.columns(2)
+
+            with col1:
+                st.markdown("## 🥇 Final Scores")
+                players_data = [
+                    {
+                        "Player": p.name,
+                        "Base Points": p.get_total_points(),
+                        "Tokens": p.get_token_count(),
+                        "Token Bonus": p.get_token_count() * 5,
+                        "Final Score": p.get_final_score(),
+                    }
+                    for p in st.session_state.players
+                ]
+                df = pd.DataFrame(players_data).sort_values(
+                    "Final Score", ascending=False
+                )
+                st.dataframe(df, use_container_width=True)
+
+            with col2:
+                winner = max(
+                    st.session_state.players, key=lambda p: p.get_final_score()
+                )
+                st.markdown(f"### 👑 **{winner.name}**")
+                col_w1, col_w2 = st.columns(2)
+                with col_w1:
+                    st.metric("Final Score", winner.get_final_score())
+                with col_w2:
+                    st.metric("Tokens Earned", winner.get_token_count())
+
+                st.markdown("**Score Breakdown:**")
+                st.write(f"  • Base Points: **{winner.get_total_points()}**")
+                st.write(
+                    f"  • Tokens: {winner.get_token_count()} × 5 = **+{winner.get_token_count() * 5}**"
+                )
+                st.write(f"  • **Total: {winner.get_final_score()}**")
+
+            st.markdown("---")
+            st.markdown("## 📊 Player Details")
+            for player in st.session_state.players:
+                with st.expander(f"👤 {player.name}"):
+                    col1, col2, col3 = st.columns(3)
+                    with col1:
+                        st.metric("Final Score", player.get_final_score())
+                    with col2:
+                        st.metric("Base Points", player.get_total_points())
+                    with col3:
+                        st.metric("Tokens", player.get_token_count())
+
+                    if player.tokens:
+                        st.markdown("**🏆 Tokens Earned:**")
+                        for token in player.tokens:
+                            st.markdown(f"  ✨ {token}")
+
+                    st.markdown(f"**Round Scores:** {player.round_scores}")
+
+                    if player.reflections:
+                        st.markdown(f"**💭 Reflections ({len(player.reflections)}):**")
+                        for i, reflection in enumerate(player.reflections, 1):
+                            st.write(f"**Round {i}:** _{reflection}_")
+                    else:
+                        st.write("*No reflections recorded*")
+
+            st.markdown("---")
+            st.markdown("## 🎓 Key Lessons")
+            lessons = [
+                "🎧 Empathy & Listening (Allocentrism) are powerful levers.",
+                "🤝 Networking is about genuine connection, not charisma.",
+                "🧠 Smart Power means knowing WHEN to use Soft & Hard power.",
+                "🔄 Real change comes from fairness, inclusion, and ownership.",
+                "🎯 Read the room (Situational Awareness) before acting.",
+                "⚡ Shape situations (Agency) rather than just reacting.",
+                "📖 Stories stick; data clarifies. Use both.",
+                "💼 Build alliances BEFORE you need them (Coalitions).",
+                "🤲 Give first; reciprocity builds loyalty.",
+                "🌟 True influence is ethical, intentional, and generous.",
+            ]
+            for lesson in lessons:
+                st.write(lesson)
+
+            st.markdown("---")
+            col1, col2, col3 = st.columns([1, 1, 1])
+            with col2:
+                if st.button("🔄 Play Again", use_container_width=True):
+                    st.session_state.game_started = False
+                    st.session_state.players = []
+                    st.session_state.current_round = 0
+                    st.session_state.game_over = False
+                    st.session_state.current_player_index = 0
+                    st.rerun()
+
+        else:
+            progress = (
+                st.session_state.current_round - 1
+            ) / st.session_state.max_rounds
+            st.progress(progress)
+            st.markdown(
+                f"### 📍 Round {st.session_state.current_round} of {st.session_state.max_rounds}"
+            )
+            st.markdown("---")
+
+            scenario = st.session_state.current_scenario
             current_player = st.session_state.players[
                 st.session_state.current_player_index
             ]
-            st.metric("Playing", current_player.name)
 
-        st.markdown("---")
+            col1, col2 = st.columns([3, 1])
 
-        st.markdown(f"## 🎮 {current_player.name}'s Turn")
+            with col1:
+                st.markdown(f"## 📋 {scenario.name}")
+                st.markdown(scenario.situation)
+                with st.expander("💡 **Suggested Tools & Lesson**"):
+                    st.write(
+                        f"**Suggested Tools:** {', '.join([t.value for t in scenario.suggested_tools])}"
+                    )
+                    st.write(f"**Reward Token:** ✨ {scenario.reward_token}")
+                    st.write(f"**Play Example:** {scenario.play_example}")
+                    st.write(f"**Lesson:** {scenario.lesson}")
 
-        col1, col2 = st.columns(2)
+            with col2:
+                st.markdown("### 📊 Status")
+                st.metric("Round", st.session_state.current_round)
+                st.metric("Playing", current_player.name)
 
-        with col1:
-            st.markdown("### 🧰 Available Tools")
-            for i, tool in enumerate(GameState.TOOLS):
-                suggested = "⭐" if tool.tool in scenario.suggested_tools else ""
-                color = (
-                    "🟦"
-                    if tool.power_type == PowerType.SOFT
-                    else ("🟥" if tool.power_type == PowerType.HARD else "🟩")
-                )
-                st.write(
-                    f"{suggested} {color} **{tool.tool.value}**: {tool.points_value} pts"
-                )
+            st.markdown("---")
+            st.markdown(f"## 🎮 {current_player.name}'s Turn")
 
-        with col2:
-            st.markdown("### 🎯 Select Your Tools")
-            st.markdown("_Choose up to 3 (no duplicates)_")
+            col1, col2 = st.columns(2)
 
-            selected_tools = []
-            selected_indices = []
+            with col1:
+                st.markdown("### 🧰 Available Tools")
+                for tool in GameState.TOOLS:
+                    suggested = "⭐" if tool.tool in scenario.suggested_tools else ""
+                    color = {
+                        "Soft Power": "🟦",
+                        "Hard Power": "🟥",
+                        "Smart Power": "🟩",
+                    }.get(tool.power_type.value, "")
+                    st.write(
+                        f"{suggested} {color} **{tool.tool.value}**: {tool.points_value} pts"
+                    )
 
-            for i in range(3):
-                available_tools = [
-                    t for t in GameState.TOOLS if t not in selected_tools
-                ]
-                tool_names = [
-                    f"{t.tool.value} ({t.power_type.value})" for t in available_tools
-                ]
+            with col2:
+                st.markdown("### 🎯 Select Your Tools")
+                st.markdown("_Choose up to 3 (no duplicates)_")
+                selected_tools, selected_indices = [], []
+                for i in range(3):
+                    available = [t for t in GameState.TOOLS if t not in selected_tools]
+                    tool_names = [
+                        f"{t.tool.value} ({t.power_type.value})" for t in available
+                    ]
+                    selected = st.selectbox(
+                        f"Tool {i + 1}",
+                        options=["None"] + tool_names,
+                        key=f"tool_{i}",
+                        label_visibility="collapsed",
+                    )
+                    if selected != "None":
+                        selected_tool = available[tool_names.index(selected)]
+                        selected_tools.append(selected_tool)
+                        selected_indices.append(GameState.TOOLS.index(selected_tool))
 
-                selected = st.selectbox(
-                    f"Tool {i + 1}",
-                    options=["None"] + tool_names,
-                    key=f"tool_selection_{i}",
+            turn_key = f"turn_{st.session_state.current_round}_{st.session_state.current_player_index}"
+            if turn_key not in st.session_state:
+                st.session_state[turn_key] = False
+
+            if not st.session_state[turn_key]:
+                col1, col2, col3 = st.columns([1, 1, 1])
+                with col2:
+                    if st.button(
+                        "▶️ Play These Tools", key="play", use_container_width=True
+                    ):
+                        if selected_indices:
+                            chosen = [GameState.TOOLS[i] for i in selected_indices]
+                            base_pts, syn, var, total = calculate_points(
+                                chosen, scenario
+                            )
+                            current_player.add_round_score(total)
+                            if total >= 7:
+                                current_player.add_token(scenario.reward_token)
+                            st.session_state[turn_key] = True
+                            st.rerun()
+
+            if st.session_state[turn_key]:
+                chosen = [GameState.TOOLS[i] for i in selected_indices]
+                base_pts, syn, var, total = calculate_points(chosen, scenario)
+
+                st.success("✅ **Round Scored!**")
+                col1, col2 = st.columns(2)
+                with col1:
+                    st.markdown("### 📈 Scoring")
+                    st.write(f"Base: {base_pts} | Synergy: +{syn} | Variety: +{var}")
+                    st.metric("Total", total)
+
+                with col2:
+                    st.markdown("### 🛠️ Tools Used")
+                    for tool in chosen:
+                        badge = {
+                            "Soft Power": "🟦",
+                            "Hard Power": "🟥",
+                            "Smart Power": "🟩",
+                        }[tool.power_type.value]
+                        st.write(f"{badge} {tool.tool.value}")
+                    if total >= 7:
+                        st.success(f"🏆 {scenario.reward_token}")
+
+                st.markdown("---")
+                st.markdown("### 💭 Reflection")
+                prompt = random.choice(st.session_state.reflection_prompts)
+                st.write(f"**{prompt}**")
+                reflection = st.text_area(
+                    "Your thoughts:",
+                    key=f"ref_{st.session_state.current_round}_{st.session_state.current_player_index}",
+                    height=100,
                     label_visibility="collapsed",
                 )
 
-                if selected != "None":
-                    tool_index = tool_names.index(selected)
-                    selected_tool = available_tools[tool_index]
-                    selected_tools.append(selected_tool)
-                    selected_indices.append(GameState.TOOLS.index(selected_tool))
-
-        turn_key = f"turn_{st.session_state.current_round}_{st.session_state.current_player_index}"
-
-        if turn_key not in st.session_state:
-            st.session_state[turn_key] = False
-
-        if not st.session_state[turn_key]:
-            col1, col2, col3 = st.columns([1, 1, 1])
-            with col2:
-                if st.button(
-                    "▶️ Play These Tools", key="play_button", use_container_width=True
-                ):
-                    if not selected_indices:
-                        st.warning(
-                            "Please select at least one tool or skip this round."
-                        )
-                    else:
-                        chosen_tools = [GameState.TOOLS[i] for i in selected_indices]
-                        base_pts, syn_bonus, var_bonus, total_pts = calculate_points(
-                            chosen_tools, scenario
-                        )
-
-                        current_player.add_round_score(total_pts)
-
-                        if total_pts >= 7:
-                            current_player.add_token(scenario.reward_token)
-
-                        st.session_state[turn_key] = True
-                        st.rerun()
-
-        if st.session_state[turn_key]:
-            chosen_tools = [GameState.TOOLS[i] for i in selected_indices]
-            base_pts, syn_bonus, var_bonus, total_pts = calculate_points(
-                chosen_tools, scenario
-            )
-
-            st.success("✅ **Round Scored!**")
-
-            col1, col2 = st.columns(2)
-            with col1:
-                st.markdown("### 📈 Scoring Breakdown")
-                st.write(f"**Base Points:** {base_pts}")
-                if syn_bonus > 0:
-                    st.write(f"**Synergy Bonus:** +{syn_bonus}")
-                if var_bonus > 0:
-                    power_types_used = set(tool.power_type for tool in chosen_tools)
-                    types_str = ", ".join([pt.value for pt in power_types_used])
-                    st.write(f"**Variety Bonus:** +{var_bonus}")
-                st.metric("Round Total", total_pts, f"+{total_pts} points")
-
-            with col2:
-                st.markdown("### 🛠️ Tools Used")
-                for tool in chosen_tools:
-                    power_badge = {
-                        PowerType.SOFT: "🟦",
-                        PowerType.HARD: "🟥",
-                        PowerType.SMART: "🟩",
-                    }[tool.power_type]
-                    st.write(
-                        f"{power_badge} **{tool.tool.value}** ({tool.power_type.value})"
-                    )
-
-                if total_pts >= 7:
-                    st.success(f"🏆 **{scenario.reward_token}** Earned!")
-
-            st.markdown("---")
-            st.markdown("### 💭 Reflection")
-            prompt = random.choice(st.session_state.reflection_prompts)
-            st.write(f"**{prompt}**")
-            reflection_text = st.text_area(
-                "Your thoughts:",
-                key=f"reflection_{st.session_state.current_round}_{st.session_state.current_player_index}",
-                label_visibility="collapsed",
-                height=100,
-            )
-
-            col1, col2, col3 = st.columns([1, 1, 1])
-            with col2:
-                if st.button(
-                    "✓ Submit Reflection & Continue",
-                    key="submit_reflection",
-                    use_container_width=True,
-                ):
-                    if reflection_text:
-                        current_player.add_reflection(reflection_text)
-
+                if st.button("✓ Submit & Continue", use_container_width=True):
+                    if reflection:
+                        current_player.add_reflection(reflection)
                     st.session_state[turn_key] = False
 
                     if (
@@ -810,28 +714,20 @@ def main():
                         < len(st.session_state.players) - 1
                     ):
                         st.session_state.current_player_index += 1
-                        st.rerun()
                     else:
                         if st.session_state.current_round < st.session_state.max_rounds:
                             st.session_state.current_round += 1
                             st.session_state.current_player_index = 0
-                            if st.session_state.scenario_pool:
-                                st.session_state.current_scenario = (
-                                    st.session_state.scenario_pool.pop(0)
-                                )
-                            else:
-                                st.session_state.scenario_pool = list(
-                                    GameState.SCENARIOS
-                                )
-                                random.shuffle(st.session_state.scenario_pool)
-                                st.session_state.current_scenario = (
-                                    st.session_state.scenario_pool.pop(0)
-                                )
-                            st.rerun()
+                            st.session_state.current_scenario = (
+                                st.session_state.scenario_pool.pop(0)
+                                if st.session_state.scenario_pool
+                                else random.choice(GameState.SCENARIOS)
+                            )
                         else:
                             st.session_state.game_over = True
-                            st.rerun()
+                    st.rerun()
 
 
 if __name__ == "__main__":
     main()
+
